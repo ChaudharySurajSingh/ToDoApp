@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import TaskInput from "./components/TaskInput";
+import TaskList from "./components/TaskList";
+import { Container, Typography, CssBaseline, Paper, Box } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./theme";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Container maxWidth="sm" className="App">
+        <Box mt={5} width="100%">
+          <Paper
+            elevation={3}
+            sx={{ padding: 4, borderRadius: 3, width: "100%" }}
+          >
+            <Typography variant="h4" component="h1" gutterBottom>
+              To-Do List
+            </Typography>
+            <TaskInput />
+            <TaskList />
+          </Paper>
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 }
 
